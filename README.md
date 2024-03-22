@@ -14,17 +14,16 @@ Deze lovelace views zijn gemaakt omdat ik de informatie die in de Sessy Portal z
 
 ## Installation
 
-1. In Home Assistant go to HACS -> Integrations. Click on "+ Explore & Download Repositories" and search for "EV Smart Charging".
-
-
-2. In Home Assistant go to Settings -> Devices & Services -> Integrations. Click on "+ Add integration" and search for "EV Smart Charging".
+1. Kopieer alle afbeeldingen "images/sessy naar je Home assistant systeem "/local/images/sessy".
+2. Creeer nieuwe LoveLave views zoals hieronder getoond.
+3. Vervang de sessy entities met jouw entitities in de lovelace yaml views
 
 ## Sessy View 1
 
 ![Chart](README/screenshot1.png)
 ```
 elements:
-  - entity: sensor.sessy_de7j_state_of_charge
+  - entity: sensor.sessy_xxxx_state_of_charge
     image: /local/images/sessy/sessy-0.png
     state_image:
       '0': /local/images/sessy/sessy-0.png
@@ -133,13 +132,13 @@ elements:
       top: 17%
       width: 80%
     type: image
-  - entity: sensor.sessy_de7j_state_of_charge
+  - entity: sensor.sessy_xxxx_state_of_charge
     style:
       left: 50%
       top: 30%
       font-size: 150%
     type: state-label
-  - entity: sensor.sessy_de7j_system_state
+  - entity: sensor.sessy_xxxx_system_state
     style:
       left: 50%
       top: 47%
@@ -147,7 +146,7 @@ elements:
       text-align: center
     type: state-label
     prefix: 'Status: '
-  - entity: select.sessy_de7j_power_strategy
+  - entity: select.sessy_xxxx_power_strategy
     style:
       left: 50%
       top: 60%
@@ -157,12 +156,12 @@ elements:
     prefix: 'Modus: '
   - type: conditional
     conditions:
-      - entity: sensor.sessy_de7j_charge_power
+      - entity: sensor.sessy_xxxx_charge_power
         state_not: '0'
     elements:
       - type: state-label
         prefix: 'Opladen met: '
-        entity: sensor.sessy_de7j_charge_power
+        entity: sensor.sessy_xxxx_charge_power
         style:
           top: 73%
           left: 50%
@@ -170,12 +169,12 @@ elements:
           text-align: center
   - type: conditional
     conditions:
-      - entity: sensor.sessy_de7j_discharge_power
+      - entity: sensor.sessy_xxxx_discharge_power
         state_not: '0'
     elements:
       - type: state-label
         prefix: 'Ontladen met: '
-        entity: sensor.sessy_de7j_discharge_power
+        entity: sensor.sessy_xxxx_discharge_power
         style:
           top: 73%
           left: 50%
@@ -183,22 +182,22 @@ elements:
           text-align: center
   - type: conditional
     conditions:
-      - entity: sensor.sessy_de7j_charge_power
+      - entity: sensor.sessy_xxxx_charge_power
         state_not: '0'
     elements:
       - type: image
-        entity: sensor.sessy_de7j_charge_power
+        entity: sensor.sessy_xxxx_charge_power
         image: /local/images/sessy/sessy-charging.png
         style:
           top: 30%
           left: 15%
   - type: conditional
     conditions:
-      - entity: sensor.sessy_de7j_discharge_power
+      - entity: sensor.sessy_xxxx_discharge_power
         state_not: '0'
     elements:
       - type: image
-        entity: sensor.sessy_de7j_discharge_power
+        entity: sensor.sessy_xxxx_discharge_power
         image: /local/images/sessy/sessy-discharging.png
         style:
           top: 30%
@@ -208,10 +207,9 @@ image: /local/images/sessy/blank.png
 type: picture-elements
 ```
 
-
-Please replace the contents of `action:` with suitable contents for your charger.
-
 ### Sessy View 2
+
+![Chart](README/screenshot3.png)
 ```
 type: custom:apexcharts-card
 graph_span: 24h
@@ -232,7 +230,7 @@ yaxis:
     apex_config:
       tickAmount: 10
 series:
-  - entity: sensor.sessy_de7j_state_of_charge
+  - entity: sensor.sessy_xxxx_state_of_charge
     yaxis_id: first
     type: line
     name: Sessy Batterij Percentage
@@ -241,7 +239,7 @@ series:
     group_by:
       func: last
       duration: 30min
-  - entity: sensor.sessy_de7j_power
+  - entity: sensor.sessy_xxxx_power
     yaxis_id: second
     color: blue
     type: area
