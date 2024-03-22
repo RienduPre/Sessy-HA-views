@@ -21,7 +21,7 @@ Deze lovelace views zijn gemaakt omdat ik de informatie die in de Sessy Portal z
 
 ## Sessy View 1
 
-![Chart](README/Scherm­afbeelding 2024-03-16 om 14.01.38.png)
+![Chart](README/screenshot1.png)
 ```
 elements:
   - entity: sensor.sessy_de7j_state_of_charge
